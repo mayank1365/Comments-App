@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useStore from '../store/useStore';
-import './CommentItem.css';
+import './CommentItem.css'; 
 
 const CommentItem = ({ index, name, text, date, replies = [] }) => {
   const [editMode, setEditMode] = useState(false);
@@ -9,7 +9,7 @@ const CommentItem = ({ index, name, text, date, replies = [] }) => {
   const [replyText, setReplyText] = useState('');
   const [replyEditMode, setReplyEditMode] = useState({});
   const [editedReplyText, setEditedReplyText] = useState({});
-  const [showReplyForm, setShowReplyForm] = useState(false);
+  const [showReplyForm, setShowReplyForm] = useState(false); 
 
   const updateComment = useStore((state) => state.updateComment);
   const addReply = useStore((state) => state.addReply);
@@ -27,7 +27,7 @@ const CommentItem = ({ index, name, text, date, replies = [] }) => {
       addReply(index, replyName, replyText);
       setReplyName('');
       setReplyText('');
-      setShowReplyForm(false);
+      setShowReplyForm(false); 
     }
   };
 
@@ -82,7 +82,7 @@ const CommentItem = ({ index, name, text, date, replies = [] }) => {
           <button className="add-reply-button" onClick={handleAddReply}>Add Reply</button>
         </div>
       )}
-      <div className="replies-list">
+      <div className="replies-container">
         {replies.map((reply, replyIndex) => (
           <div key={replyIndex} className="reply-item">
             <div className="reply-header">

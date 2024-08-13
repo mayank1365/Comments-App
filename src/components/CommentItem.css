@@ -1,133 +1,115 @@
-.comment-item {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    position: relative;
-    background-color: #f9f9f9;
-  }
-  
-  .comment-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .comment-name {
-    font-weight: bold;
-  }
-  
-  .comment-date {
-    font-size: 0.9em;
-    color: #666;
-  }
-  
-  .delete-button {
-    background-color: #ff4d4d;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .edit-button, .reply-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .reply-form {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-  }
-  
-  .reply-name-input, .reply-textarea {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  
-  .reply-textarea {
-    height: 60px;
-  }
-  
-  .add-reply-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .reply-item {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .reply-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .reply-name {
-    font-weight: bold;
-  }
-  
-  .reply-date {
-    font-size: 0.9em;
-    color: #666;
-  }
-  
-  .delete-reply-button {
-    background-color: #ff4d4d;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .edit-reply-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .edit-textarea, .edit-reply-textarea {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  
-  .update-button, .cancel-button, .update-reply-button, .cancel-reply-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .cancel-button, .cancel-reply-button {
-    background-color: #f44336;
-  }
-  
+.reply-form {
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.reply-name-input,
+.reply-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.reply-name-input {
+  margin-bottom: 5px;
+}
+
+.add-reply-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.add-reply-button:hover {
+  background-color: #45a049;
+}
+
+.replies-container {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.reply-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  position: relative;
+}
+
+.reply-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reply-name {
+  font-weight: bold;
+}
+
+.reply-date {
+  font-size: 0.8em;
+  color: #888;
+}
+
+.delete-reply-button,
+.edit-reply-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+.delete-reply-button {
+  background-color: #ff4d4d;
+}
+
+.delete-reply-button:hover {
+  background-color: #e60000;
+}
+
+.edit-reply-button:hover {
+  background-color: #45a049;
+}
+
+.edit-reply-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.update-reply-button,
+.cancel-reply-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.cancel-reply-button {
+  background-color: #ff4d4d;
+}
+
+.update-reply-button:hover {
+  background-color: #45a049;
+}
+
+.cancel-reply-button:hover {
+  background-color: #e60000;
+}

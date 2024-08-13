@@ -1,7 +1,7 @@
 import React from 'react';
 import CommentForm from './components/CommentForm';
 import CommentList from './components/CommentList';
-import './styles.css'; 
+import './App.css';
 
 const App = () => {
   return (

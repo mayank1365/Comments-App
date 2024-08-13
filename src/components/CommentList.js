@@ -3,8 +3,10 @@ import useStore from '../store/useStore';
 import CommentItem from './CommentItem';
 
 const CommentList = () => {
-  const comments = useStore((state) => state.comments);
-  const sortComments = useStore((state) => state.sortComments);
+  const { comments, sortComments } = useStore((state) => ({
+    comments: state.comments,
+    sortComments: state.sortComments,
+  }));
 
   useEffect(() => {
     sortComments();
@@ -12,16 +14,20 @@ const CommentList = () => {
 
   return (
     <div>
-      {comments.map((comment, index) => (
-        <CommentItem
-          key={index}
-          index={index}
-          name={comment.name}
-          text={comment.text}
-          date={comment.date}
-          replies={comment.replies}
-        />
-      ))}
+      {comments.length > 0 ? (
+        comments.map((comment, index) => (
+          <CommentItem
+            key={index}
+            index={index}
+            name={comment.name}
+            text={comment.text}
+            date={comment.date}
+            replies={comment.replies}
+          />
+        ))
+      ) : (
+        <p>No comments yet</p>
+      )}
     </div>
   );
 };
