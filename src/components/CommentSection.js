@@ -33,7 +33,7 @@ const CommentsSection = () => {
                         <ReplyItem
                             key={reply.id}
                             reply={reply}
-                            updateReply={updateReply} // Pass the function as a prop
+                            updateReply={updateReply} 
                         />
                     ))}
                 </div>

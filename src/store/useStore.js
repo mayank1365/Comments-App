@@ -34,6 +34,13 @@ const useStore = create((set) => ({
     return { comments: updatedComments };
   }),
   
+  updateReply: (commentIndex, replyIndex, newText) => set((state) => {
+    const updatedComments = [...state.comments];
+    updatedComments[commentIndex].replies[replyIndex].text = newText;
+    localStorage.setItem('comments', JSON.stringify(updatedComments));
+    return { comments: updatedComments };
+  }),
+  
   deleteComment: (index) => set((state) => {
     const updatedComments = state.comments.filter((_, i) => i !== index);
     localStorage.setItem('comments', JSON.stringify(updatedComments));

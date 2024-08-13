@@ -4,7 +4,7 @@ const ReplyItem = ({ reply, updateReply }) => {
     const handleUpdateReply = () => {
         const updatedText = prompt('Enter new reply text:', reply.text);
         if (updatedText !== null) {
-            updateReply(reply.commentId, reply.id, updatedText); // Call the function
+            updateReply(reply.commentId, reply.id, updatedText); 
         }
     };
 
