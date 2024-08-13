@@ -6,9 +6,10 @@ const CommentList = () => {
   const comments = useStore((state) => state.comments);
   const sortComments = useStore((state) => state.sortComments);
 
+  // Sort comments only when the component mounts or comments change
   useEffect(() => {
     sortComments();
-  }, [comments, sortComments]);
+  }, [sortComments]); // Dependency array ensures sortComments is only called once when necessary
 
   return (
     <div>
