@@ -1,11 +1,12 @@
 import React from 'react';
 import CommentForm from './components/CommentForm';
 import CommentList from './components/CommentList';
+import './styles.css'; 
 
 const App = () => {
   return (
-    <div>
-      <h1>Comments</h1>
+    <div className="App">
+      <h1>Comments System</h1>
       <CommentForm />
       <CommentList />
     </div>
