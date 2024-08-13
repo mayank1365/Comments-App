@@ -13,9 +13,8 @@ const useStore = create((set) => ({
     const updatedComments = [newComment, ...state.comments];
     localStorage.setItem('comments', JSON.stringify(updatedComments));
     return { comments: updatedComments };
-}),
+  }),
 
-  
   addReply: (commentIndex, name, text) => set((state) => {
     const updatedComments = [...state.comments];
     const reply = {
