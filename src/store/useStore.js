@@ -1,47 +1,74 @@
 import create from 'zustand';
 
 const useStore = create((set) => ({
-  comments: [],
-  addComment: (name, text) => set((state) => ({
-    comments: [
-      ...state.comments,
-      { name, text, date: new Date(), replies: [] },
-    ],
-  })),
-  updateComment: (index, newText) => set((state) => {
-    const comments = [...state.comments];
-    comments[index].text = newText;
-    return { comments };
+  comments: JSON.parse(localStorage.getItem('comments')) || [],
+
+  addComment: (name, text) => set((state) => {
+    const newComment = {
+      name,
+      text,
+      date: new Date(),
+      replies: []
+    };
+    const updatedComments = [...state.comments, newComment];
+    localStorage.setItem('comments', JSON.stringify(updatedComments));
+    return { comments: updatedComments };
   }),
+
+  updateComment: (index, text) => set((state) => {
+    const updatedComments = state.comments.map((comment, i) =>
+      i === index ? { ...comment, text } : comment
+    );
+    localStorage.setItem('comments', JSON.stringify(updatedComments));
+    return { comments: updatedComments };
+  }),
+
+  deleteComment: (index) => set((state) => {
+    const updatedComments = state.comments.filter((_, i) => i !== index);
+    localStorage.setItem('comments', JSON.stringify(updatedComments));
+    return { comments: updatedComments };
+  }),
+
   addReply: (commentIndex, name, text) => set((state) => {
-    const comments = [...state.comments];
-    if (!comments[commentIndex].replies) {
-      comments[commentIndex].replies = []; // Initialize replies array if undefined
-    }
-    comments[commentIndex].replies.push({ name, text, date: new Date() });
-    return { comments };
+    const updatedComments = state.comments.map((comment, i) =>
+      i === commentIndex
+        ? {
+            ...comment,
+            replies: [...comment.replies, { name, text, date: new Date() }]
+          }
+        : comment
+    );
+    localStorage.setItem('comments', JSON.stringify(updatedComments));
+    return { comments: updatedComments };
   }),
-  updateReply: (commentIndex, replyIndex, newText) => set((state) => {
-    const comments = [...state.comments];
-    if (comments[commentIndex].replies) {
-      comments[commentIndex].replies[replyIndex].text = newText;
-    }
-    return { comments };
+
+  updateReply: (commentIndex, replyIndex, text) => set((state) => {
+    const updatedComments = state.comments.map((comment, i) =>
+      i === commentIndex
+        ? {
+            ...comment,
+            replies: comment.replies.map((reply, j) =>
+              j === replyIndex ? { ...reply, text } : reply
+            )
+          }
+        : comment
+    );
+    localStorage.setItem('comments', JSON.stringify(updatedComments));
+    return { comments: updatedComments };
   }),
-  deleteComment: (index) => set((state) => ({
-    comments: state.comments.filter((_, i) => i !== index),
-  })),
+
   deleteReply: (commentIndex, replyIndex) => set((state) => {
-    const comments = [...state.comments];
-    if (comments[commentIndex].replies) {
-      comments[commentIndex].replies.splice(replyIndex, 1);
-    }
-    return { comments };
-  }),
-  sortComments: () => set((state) => {
-    const comments = [...state.comments].sort((a, b) => new Date(b.date) - new Date(a.date));
-    return { comments };
-  }),
+    const updatedComments = state.comments.map((comment, i) =>
+      i === commentIndex
+        ? {
+            ...comment,
+            replies: comment.replies.filter((_, j) => j !== replyIndex)
+          }
+        : comment
+    );
+    localStorage.setItem('comments', JSON.stringify(updatedComments));
+    return { comments: updatedComments };
+  })
 }));
 
 export default useStore;

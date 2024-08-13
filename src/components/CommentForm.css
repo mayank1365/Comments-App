@@ -1,0 +1,37 @@
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .comment-form input,
+  .comment-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+  }
+  
+  .comment-form textarea {
+    height: 80px;
+    resize: vertical;
+  }
+  
+  .comment-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .comment-form button:hover {
+    background-color: #45a049;
+  }
+  
