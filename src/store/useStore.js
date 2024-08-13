@@ -5,15 +5,16 @@ const useStore = create((set) => ({
   
   addComment: (name, text) => set((state) => {
     const newComment = {
-      name,
-      text,
-      date: new Date().toISOString(),
-      replies: [],
+        name,
+        text,
+        date: new Date().toISOString(),
+        replies: [],
     };
-    const updatedComments = [...state.comments, newComment];
+    const updatedComments = [newComment, ...state.comments];
     localStorage.setItem('comments', JSON.stringify(updatedComments));
     return { comments: updatedComments };
-  }),
+}),
+
   
   addReply: (commentIndex, name, text) => set((state) => {
     const updatedComments = [...state.comments];
