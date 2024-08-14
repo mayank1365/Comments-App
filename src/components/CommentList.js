@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useStore from '../store/useStore';
 import CommentItem from './CommentItem';
 
 const CommentList = () => {
-  const { comments, sortComments } = useStore((state) => ({
+  const { comments } = useStore((state) => ({
     comments: state.comments,
-    sortComments: state.sortComments,
   }));
-
-  useEffect(() => {
-    sortComments();
-  }, [sortComments]);
 
   return (
     <div>

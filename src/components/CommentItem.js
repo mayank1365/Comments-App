@@ -40,7 +40,9 @@ const CommentItem = ({ index, name, text, date, replies = [] }) => {
     <div className="comment-item">
       <div className="comment-header">
         <span className="comment-name">{name}</span>
+        <span className="comment-divider"> </span>
         <span className="comment-date">{new Date(date).toLocaleString()}</span>
+        <span className="comment-divider"> </span>
         <button className="delete-button" onClick={() => deleteComment(index)}>Delete</button>
       </div>
       <div className="comment-body">

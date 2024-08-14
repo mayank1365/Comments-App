@@ -113,3 +113,8 @@
 .cancel-reply-button:hover {
   background-color: #e60000;
 }
+
+.comment-divider {
+  display: inline-block;
+  margin: 0 10px; /* Space between elements */
+}
