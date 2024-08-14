@@ -54,10 +54,6 @@ const useStore = create((set) => ({
     return { comments: updatedComments };
   }),
   
-  sortComments: () => set((state) => {
-    const sortedComments = [...state.comments].sort((a, b) => new Date(b.date) - new Date(a.date));
-    return { comments: sortedComments };
-  }),
 }));
 
 export default useStore;
